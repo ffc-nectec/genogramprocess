@@ -26,12 +26,13 @@ internal class AlgorithmMapMate<P> {
     interface AddMateBaseFunc<P> {
         val idCard: String
         val sex: GENOSEX?
+        val mateStatus: MateStatus
 
         /**
          * แฟนที่ถูกกำหนดมาใน Entity
          */
         val mateInRelation: List<P>
-        fun addMate(mateIdCard: String)
+        fun addMate(mateIdCard: String, mateStatus: MateStatus)
     }
 
     private fun P.addMate(
@@ -41,7 +42,7 @@ internal class AlgorithmMapMate<P> {
         if (mate != null)
             if (isMate(func(this).sex, func(mate.person).sex)) {
                 if (func(this).mateInRelation.find { func(it).idCard == func(mate.person).idCard } != null) return
-                func(this).addMate(func(mate.person).idCard)
+                func(this).addMate(func(mate.person).idCard, func(this).mateStatus)
             }
     }
 

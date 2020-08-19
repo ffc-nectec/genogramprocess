@@ -37,7 +37,8 @@ interface PersonDetailInterface<P> {
      * แฟนที่ถูกกำหนดใน entity แล้ว
      */
     fun getMateInRelation(person: P): List<P>
-    fun addMate(person: P, mateIdCard: String)
+    fun getMateStatus(person: P): MateStatus
+    fun addMate(person: P, mateIdCard: String, mateStatus: MateStatus)
 
     fun getIdCard(person: P): String
     fun getFirstName(person: P): String
@@ -58,3 +59,5 @@ interface PersonDetailInterface<P> {
 }
 
 enum class GENOSEX { MALE, FEMALE }
+
+enum class MateStatus { Divorced, Married }

@@ -63,8 +63,9 @@ class GenogramProcessWatcarakorn<P>(
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
                 override val idCard: String = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
-                override fun addMate(mateIdCard: String) {
-                    dataFunction.addMate(it, mateIdCard)
+                override val mateStatus: MateStatus = dataFunction.getMateStatus(it)
+                override fun addMate(mateIdCard: String, mateStatus: MateStatus) {
+                    dataFunction.addMate(it, mateIdCard, mateStatus)
                 }
             }
         }
@@ -86,8 +87,9 @@ class GenogramProcessWatcarakorn<P>(
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
                 override val idCard: String = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
-                override fun addMate(mateIdCard: String) {
-                    dataFunction.addMate(it, mateIdCard)
+                override val mateStatus: MateStatus = dataFunction.getMateStatus(it)
+                override fun addMate(mateIdCard: String, mateStatus: MateStatus) {
+                    dataFunction.addMate(it, mateIdCard, mateStatus)
                 }
             }
         }
@@ -100,8 +102,9 @@ class GenogramProcessWatcarakorn<P>(
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
                 override val idCard: String = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
-                override fun addMate(mateIdCard: String) {
-                    dataFunction.addMate(it, mateIdCard)
+                override val mateStatus: MateStatus = dataFunction.getMateStatus(it)
+                override fun addMate(mateIdCard: String, mateStatus: MateStatus) {
+                    dataFunction.addMate(it, mateIdCard, mateStatus)
                 }
             }
         }
