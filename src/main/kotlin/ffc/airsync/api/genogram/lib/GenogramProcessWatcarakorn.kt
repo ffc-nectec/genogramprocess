@@ -61,7 +61,7 @@ class GenogramProcessWatcarakorn<P>(
             object : AlgorithmMapMate.MapMateByIdGetData<P> {
                 override val mateInformationIdCard: String? = dataFunction.getMateInformationId(it)
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun addMate(mateIdCard: String) {
                     dataFunction.addMate(it, mateIdCard)
@@ -84,7 +84,7 @@ class GenogramProcessWatcarakorn<P>(
                     }.invoke()
                 override val age: Int = dataFunction.getAge(it) ?: 0
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun addMate(mateIdCard: String) {
                     dataFunction.addMate(it, mateIdCard)
@@ -98,7 +98,7 @@ class GenogramProcessWatcarakorn<P>(
                 override val mateFirstName: String? = dataFunction.getMateFirstName(it)
                 override val age: Int = dataFunction.getAge(it) ?: 0
                 override val mateInRelation: List<P> = dataFunction.getMateInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun addMate(mateIdCard: String) {
                     dataFunction.addMate(it, mateIdCard)
@@ -117,7 +117,7 @@ class GenogramProcessWatcarakorn<P>(
             object : AlgorithmMapMother.MapMotherByIdGetData<P> {
                 override val motherInformationIdCard: String? = dataFunction.getMotherInformationId(it)
                 override val motherInRelation: P? = dataFunction.getMotherInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun setMother(motherIdCard: String) {
                     dataFunction.setMother(it, motherIdCard)
@@ -140,7 +140,7 @@ class GenogramProcessWatcarakorn<P>(
                     }.invoke()
                 override val age: Int = dataFunction.getAge(it) ?: 0
                 override val motherInRelation: P? = dataFunction.getMotherInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun setMother(motherIdCard: String) {
                     dataFunction.setMother(it, motherIdCard)
@@ -155,7 +155,7 @@ class GenogramProcessWatcarakorn<P>(
                 override val motherFirstName: String? = dataFunction.getMotherFirstName(it)
                 override val age: Int = dataFunction.getAge(it) ?: 0
                 override val motherInRelation: P? = dataFunction.getMotherInRelation(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override fun setMother(motherIdCard: String) {
                     dataFunction.setMother(it, motherIdCard)
@@ -173,7 +173,7 @@ class GenogramProcessWatcarakorn<P>(
         algorithmMapFather.mapFatherById(preData) {
             object : AlgorithmMapFather.MapFatherByIdGetData<P> {
                 override val fatherInformationIdCard: String? = dataFunction.getFatherInformationId(it)
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override val fatherInRelation: P? = dataFunction.getFatherInRelation(it)
                 override fun setFather(fatherIdCard: String) {
@@ -197,7 +197,7 @@ class GenogramProcessWatcarakorn<P>(
                             "$firstName $lastName"
                     }.invoke()
 
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override val fatherInRelation: P? = dataFunction.getFatherInRelation(it)
                 override fun setFather(fatherIdCard: String) {
@@ -212,7 +212,7 @@ class GenogramProcessWatcarakorn<P>(
                 override val lastName: String = dataFunction.getLastName(it)
                 override val fatherFirstName: String? = dataFunction.getFatherFirstName(it)
                 override val age: Int = dataFunction.getAge(it) ?: 0
-                override val idCard: String = dataFunction.getIdCard(it)
+                override val idCard: String? = dataFunction.getIdCard(it)
                 override val sex: GENOSEX? = dataFunction.getSex(it)
                 override val fatherInRelation: P? = dataFunction.getFatherInRelation(it)
                 override fun setFather(fatherIdCard: String) {

@@ -39,7 +39,7 @@ interface PersonDetailInterface<P> {
     fun getMateInRelation(person: P): List<P>
     fun addMate(person: P, mateIdCard: String)
 
-    fun getIdCard(person: P): String
+    fun getIdCard(person: P): String?
     fun getFirstName(person: P): String
     fun getLastName(person: P): String
     fun getPcuCode(person: P): String?

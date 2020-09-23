@@ -24,7 +24,7 @@ import kotlin.math.absoluteValue
 internal class AlgorithmMapMate<P> {
 
     interface AddMateBaseFunc<P> {
-        val idCard: String
+        val idCard: String?
         val sex: GENOSEX?
 
         /**
@@ -40,8 +40,10 @@ internal class AlgorithmMapMate<P> {
     ) {
         if (mate != null)
             if (isMate(func(this).sex, func(mate.person).sex)) {
-                if (func(this).mateInRelation.find { func(it).idCard == func(mate.person).idCard } != null) return
-                func(this).addMate(func(mate.person).idCard)
+                val mateIdCard = func(mate.person).idCard
+                if (func(this).mateInRelation.find { func(it).idCard == mateIdCard } != null) return
+                if (mateIdCard != null)
+                    func(this).addMate(mateIdCard)
             }
     }
 
@@ -66,7 +68,7 @@ internal class AlgorithmMapMate<P> {
     }
 
     interface MapMateByIdGetData<P> : AddMateBaseFunc<P> {
-        override val idCard: String
+        override val idCard: String?
         val mateInformationIdCard: String?
     }
 

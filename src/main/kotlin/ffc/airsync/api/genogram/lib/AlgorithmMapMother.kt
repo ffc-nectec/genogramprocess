@@ -20,7 +20,7 @@ package ffc.airsync.api.genogram.lib
 internal class AlgorithmMapMother<P> {
 
     interface AddMotherBaseFunc<P> {
-        val idCard: String
+        val idCard: String?
         val sex: GENOSEX?
 
         /**
@@ -35,13 +35,15 @@ internal class AlgorithmMapMother<P> {
         func: (person: P) -> AddMotherBaseFunc<P>
     ) {
         if (mother != null && func(mother.person).sex != GENOSEX.MALE) {
-            if (func(mother.person).idCard == func(this).idCard) return
-            func(this).setMother(func(mother.person).idCard)
+            val motherIdCard = func(mother.person).idCard
+            if (motherIdCard == func(this).idCard) return
+            if (motherIdCard != null)
+                func(this).setMother(motherIdCard)
         }
     }
 
     interface MapMotherByIdGetData<P> : AddMotherBaseFunc<P> {
-        override val idCard: String
+        override val idCard: String?
         val motherInformationIdCard: String?
     }
 
